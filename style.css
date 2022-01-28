@@ -1,0 +1,27 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #c5e4e7;
+}
+
+.title {
+    color:#436668;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.splitter {
+    background-color: white;
+    color: #436668;
+    max-width: 800px;
+    border-radius: 15%;
+}
