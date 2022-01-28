@@ -23,5 +23,11 @@ body {
     background-color: white;
     color: #436668;
     max-width: 800px;
-    border-radius: 15%;
+    border-radius: 10%;
+    position: absolute;
+    height: 300px;
+    width: 600px;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -60%);
 }
