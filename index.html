@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Roboto&family=Roboto+Mono&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Tip Splitter</title>
-    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1 class="title">SPLI<br/>TTER</h1>
-    <div class="splitter">
-        <div class="inputs">
+    <header>
+        <h1 class="title">SPLI<br/>TTER</h1>
+    </header>
+    <section id="calculator">
+        <section id="inputs">
             <label for="bill-amount">Bill</label>
             <input class="total-bill" id="bill-amount" type="text" pattern="^[0-9]*$" title="Numbers Only" size="10" value="0">
             <fieldset class="tip-percent">
@@ -22,8 +25,8 @@
                 <button class="tip-button">50%</button>                
                 <input class="tip-custom" type="text" pattern="^[0-9]*$" title="Numbers Only" placeholder="Custom">
             </fieldset>
-        </div>
-        <div class="results">
+        </section>
+        <section class="results">
             <p>
                 Tip Amount <span class="tip-pp">$4.27</span>
             </p>
@@ -31,7 +34,7 @@
                 Total <span class="total-pp">$32.79</span>
             </p>
             <button class="reset-button">RESET</button>
-        </div>
-    </div>
+        </section>
+    </section>
 </body>
 </html>
