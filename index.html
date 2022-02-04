@@ -15,9 +15,12 @@
         </header>
         <section id="calculator">
             <section id="inputs">
-                <label for="bill-amount">Bill</label>
-                <input id="bill-amount" type="numbers" value="0">
-                <fieldset>
+                <div class="total-amount">
+                    <label for="bill-amount">Bill</label>
+                    <span class="fas fa-dollar-sign"></span>
+                    <input id="bill-amount" type="numbers" value="0">                    
+                </div>
+                <div class="tip-selection">
                     <legend>Select Tip %</legend>
                     <button>5%</button>
                     <button>10%</button>
@@ -25,7 +28,12 @@
                     <button>25%</button>
                     <button>50%</button>                
                     <input class="tip-custom" type="text" pattern="^[0-9]*$" title="Numbers Only" placeholder="Custom">
-                </fieldset>
+                </div>
+                <div class="people">
+                    <label for="num-people">Number of People</label>
+                    <span class="fas fa-user"></span>
+                    <input id="num-people" type="text" value="0">                
+                </div>
             </section>
             <section id="results">
                 <p>
