@@ -1,13 +1,14 @@
 /* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
 :root {
-    --ltteal: #c5e4e7;
-    --dkteal: #436668;
-    --medteal: #27c1ab;
-    --white: #fff;
-    --paleteal: #f3f8fb;
-    --font-size: 1.3rem;
-    --mono: "Overpass Mono", monospace;
-    --serifs: "Space Mono", serif;
+    --strongcyan: hsl(172, 67%, 45%);
+    --darkcyan: hsl(183, 100%, 15%);
+    --dkgraycyan: hsl(186, 14%, 43%);
+    --dkgraycyan2: hsl(184, 14%, 56%);
+    --ltgraycyan: hsl(185, 41%, 84%);
+    --ltgraycyan2: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --font-size: 24px;
+    --mono: "Space Mono", monospace;
 }
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
@@ -17,27 +18,40 @@ html {
     box-sizing: inherit;
 }
 body {
-    font-family: var(--serifs);
-    background-color: var(--ltteal);
+    font-family: var(--mono);
+    background-color: var(--ltgraycyan);
+    font-size: var(--font-size);
     margin: 1rem;
 }
 header {
     margin: 10rem 0 4rem 0;
 }
-header h1 {
-    color: var(--dkteal);
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 0.6rem;
+header a {
+    text-decoration: none;
+}
+header img {
+    display: block;
+    margin: 0 auto;
+}
+.text-hide { 
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
+    white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
 
 #calculator {
     font-family: var(--mono);
     background-color: var(--white);
     border-radius: 15px;
-    max-width: 800px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 32px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 1rem;
@@ -45,19 +59,20 @@ header h1 {
 
 /* input form styles */
 #inputs {
-    color: var(--dkteal);
+    color: var(--darkcyan);
     grid-column: 1/2;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: auto 32px auto 16px;
+    font-weight: bold;
 }
 #inputs div {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: solid 1px red;
+    margin-bottom: 40px;
+}
+#inputs div:last-child {
+    margin-bottom: 0;
 }
 #inputs .tip-selection {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-column-gap: 0.8rem;
     grid-row-gap: 0.8rem;    
     justify-content: space-evenly;
@@ -65,49 +80,111 @@ header h1 {
 }
 .tip-selection legend {
     grid-column: 1/4;
-    font-size: 0.8rem;
+    font-size: 14px;
+    font-weight: bold;
 }
 .tip-selection input {
-    max-width: 7rem;
     text-align: center;
-    background-color: var(--paleteal);
+    background-color: var(--ltgraycyan2);
     border: none;
-    font-size: 120%;
-    color: var(--dkteal);
-    font-weight: bold;    
+    color: var(--darkcyan);
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 5px;    
 }
 .tip-selection button {
     font-family: var(--mono);
-    font-size: 130%;
     color: var(--white);
-    background-color: var(--dkteal);
+    background-color: var(--darkcyan);
     border-radius: 5px;
     border: none;
     padding: 0.5rem 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+.tip-selection button.selected {
+    background-color: var(--strongcyan);
+    color: var(--darkcyan);
+}
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 #inputs #bill-amount {
     text-align: right;
     padding: 0.5rem;
-    background-color: var(--paleteal);
     border: none;
-    font-size: 120%;
-    color: var(--dkteal);
-    font-weight: bold;       
+    color: var(--darkcyan);
+    font-weight: bold;     
+    background: var(--ltgraycyan2) url(/img/icon-dollar.svg) no-repeat left center;  
+    background-position-x: calc(0% + 5px);  
+    width: 100%;
+    font-size: 24px;  
+    border-radius: 5px;    
+    font-family: var(--mono);
+}
+#inputs #bill-amount::placeholder {
+    font-weight: normal;
+    color: var(--dkgraycyan2);
 }
 #inputs #num-people {
     text-align: right;
     padding: 0.5rem;
-    background-color: var(--paleteal);
-    border: none;    
-    font-size: 120%;
-    color: var(--dkteal);
-    font-weight: bold;       
+    border: none;
+    color: var(--darkcyan);
+    font-weight: bold;     
+    background: var(--ltgraycyan2) url(/img/icon-person.svg) no-repeat left center;  
+    background-position-x: calc(0% + 5px);  
+    width: 100%;
+    font-size: 24px;  
+    border-radius: 5px;    
+    font-family: var(--mono);
+}
+#inputs #num-people::placeholder {
+    font-weight: normal;
+    color: var(--dkgraycyan2);
 }
 /* results styles */
 #results {
     color: var(--white);
-    background-color: var(--dkteal);
+    background-color: var(--darkcyan);
     border-radius: 10px;
-    padding: 4rem;
+    padding: 40px;
     grid-column: 2/3;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));    
+    grid-column-gap: 0.8rem;
+    grid-row-gap: 0.8rem;    
+    justify-content: space-evenly;
+    border: none;  
+    align-items: center;  
+}
+#results p {
+    grid-column: 1/2;
+    font-size: 16px;
+}
+#results .amounts {
+    grid-column: 2/4;
+    text-align: right;
+    font-size: 32px;
+    color: var(--strongcyan);
+    font-weight: bold;
+}
+#results button {
+    grid-column: 1/4;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--strongcyan);
+    color: var(--darkcyan);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    align-self: end;
+}
+#results .small-text {
+    font-size: 12px;
+    color: var(--dkgraycyan2);
 }
