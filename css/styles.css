@@ -1,6 +1,7 @@
 /* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
 :root {
     --strongcyan: hsl(172, 67%, 45%);
+    --strongcyan2: 	hsl(172, 49%, 59%);
     --darkcyan: hsl(183, 100%, 15%);
     --dkgraycyan: hsl(186, 14%, 43%);
     --dkgraycyan2: hsl(184, 14%, 56%);
@@ -112,6 +113,10 @@ header img {
     background-color: var(--strongcyan);
     color: var(--darkcyan);
 }
+.tip-selection button:hover {
+    background-color: var(--strongcyan);
+    color: var(--darkcyan);
+}
 label {
     display: block;
     font-size: 14px;
@@ -191,7 +196,19 @@ label {
     padding: 10px;
     align-self: end;
 }
+#results button:hover {
+    background-color: var(--strongcyan2);
+}
 #results .small-text {
     font-size: 12px;
     color: var(--dkgraycyan2);
 }
+
+/* mobile stuff */
+@media(max-width: 768px) {
+    #calculator {
+        max-width: 375px;
+        padding: 32px;  
+        gap: 10px;
+    }
+  }
