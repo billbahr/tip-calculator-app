@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-[Solution screenshot](https://billbahr.github.io/img/screenshot.png)
+![Solution screenshot](img/screenshot.png)
 
 
 ### Links
